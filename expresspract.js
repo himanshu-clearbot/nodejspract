@@ -1,23 +1,31 @@
 import express from "express";
 import fs from "fs";
 import path from "path";
+const app = express();
+// console.log(path.resolve());
+// console.log(path.join(path.resolve(),"public"));
 
-console.log(path.resolve());
 // const server = express();
-
+app.use(express.static(path.join(path.resolve(),"public")));
 
 // server.listen(5000,()=>
 // {
 //     console.log("server is listening ");
 // });
 
-const app = express();
+
+
+// app.set("view engine","ejs") this would help to wright front instead of front.ejs 
 app.get("/",(req,res)=>
 {
 
-    const pathlocation = path.resolve();
+    // res.render("front.ejs");
+    // res.render("front.ejs",{name:"jay"});
+    res.render("front.ejs", {place:"india"}); //dynamic data 
 
-    res.sendFile(path.join(pathlocation,"./index.html"));
+    // const pathlocation = path.resolve();
+
+    // res.sendFile(path.join(pathlocation,"./index.html"));
 
     // res.status(400).send("<h1>400 </h1>");
     // res.json(
@@ -32,7 +40,8 @@ app.get("/",(req,res)=>
 
     // res.statusCode()
     // res.end("hi");
-})
+});
+
 app.listen(5000,()=>
 {
     console.log("server is listening ");
