@@ -18,11 +18,11 @@ const server = http.createServer((req,res,)=>{
         // res.end("<h1>Home</h1>")
         res.end(home)
     }
-    else if(req.url ==="/about")
-    {
+    // else if(req.url ==="/about")
+    // {
         
-        res.end("<h1>about</h1>")
-    }
+    //     res.end("<h1>about</h1>")
+    // }
     else
     {
         const urlWithoutSlash = req.url.substring(1);
